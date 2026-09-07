@@ -9,6 +9,8 @@ import Target from '../components/Target'
 import ReactLogo from '../components/ReactLogo'
 import Tailwind from '../components/Tailwind'
 import Html from '../components/Html'
+import HeroCamera from '../components/HeroCamer'
+import Button from '../components/Button'
 
 const Hero = () => {
     // const x = useControls({
@@ -63,7 +65,9 @@ const Hero = () => {
             <Canvas className='w-full h-full '>
                 <Suspense fallback={<CanvasLoader/>}>
                     <PerspectiveCamera makeDefault position={[0,0,30]}/>
-                    <Room scale={isMobile ? 0.09 : 0.1} rotation={[0, -Math.PI, 0]} position={[1.3,-8.3 , 1.7]}   />
+                    <HeroCamera isMobile={isMobile}>
+                        <Room scale={isMobile ? 0.09 : 0.1} rotation={[0, -Math.PI, 0]} position={[1.3,-8.3 , 1.7]}   />
+                    </HeroCamera>
                     <Sparkles 
                     count={100}
                     scale={20}
@@ -84,6 +88,11 @@ const Hero = () => {
                 </Suspense>
                 
             </Canvas>
+        </div>
+        <div className='absolute bottom-7 flex justify-center items-align left-0 right-0 w-full z-10 padding-x '>
+            <a href="#contact" className='w-fit'>
+                <Button name="Let's Work together " isBeam containerClass="sm:w-fit w-full sm:min-w-96 "/>
+            </a>
         </div>
     </section>
   )
