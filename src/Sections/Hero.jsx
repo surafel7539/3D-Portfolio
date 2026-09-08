@@ -1,99 +1,86 @@
-import React, { Suspense } from 'react'
-import { Canvas } from '@react-three/fiber'
-import {  OrbitControls, PerspectiveCamera, Sparkles } from '@react-three/drei'
-import Room from '../components/HackerRoom'
-import CanvasLoader from '../components/CanvasLoader'
-import { Leva, useControls } from 'leva'
-import { useMediaQuery } from 'react-responsive'
-import Target from '../components/Target'
-import ReactLogo from '../components/ReactLogo'
-import Tailwind from '../components/Tailwind'
-import Html from '../components/Html'
-import HeroCamera from '../components/HeroCamer'
+import React from 'react'
+import { words } from '../constants'
 import Button from '../components/Button'
-
+import HeroExperience from '../HeroModels/HeroExperience'
+import { useGSAP } from '@gsap/react'
+import gsap from 'gsap'
+import AnimatedCounter from '../HeroModels/AnimatedCounter'
 const Hero = () => {
-    // const x = useControls({
-    //     positionX:{
-    //         value:2.5,
-    //         max: 40,
-    //         min: -20
-    //     },
-    //     positionY:{
-    //         value:2.5,
-    //         max: 20,
-    //         min: -40
-            
-    //     },
-    //     positionZ:{
-    //         value:2.5,
-    //         max: 20,
-    //         min: -20
-    //     },
-    //     rotationX:{
-    //         value:2.5,
-    //         min: -Math.PI,
-    //         max: Math.PI
-    //     },
-    //     rotationY:{
-    //         value:2.5,
-    //         min: -Math.PI,
-    //         max: Math.PI
-    //     },
-    //     rotationZ:{
-    //         value:2.5,
-    //         min: -Math.PI,
-    //         max: Math.PI
-    //     },
-    //     scale:{
-    //         value:2.5,
-    //         min: -Math.PI,
-    //         max: Math.PI
-    //     }
-    // })
-    const isMobile = useMediaQuery({maxWidth: 768})
-    const isTablet = useMediaQuery({maxWidth: 1024, minWidth: 768})
+    
+  useGSAP(() => {
+    gsap.fromTo('.hero-text, h1', 
+      {
+        y:50,
+        opacity: 0
+      },
+      {
+        y: 0,
+        opacity: 1,
+        stagger: 0.2,
+        duration: 1,
+        ease: 'power1.inOut'
+      }
+  )
+  })
+
 
   return (
-    <section className='min-h-screen w-full flex flex-col relative'>
-        <div className='w-full mx-auto flex  flex-col sm:mt-26 mt-20 padding-x gap-3 '>
-            <p className='text-neutral-200 sm:text-xl text-xl font-bold text-center font-generalsans'>Hi, My name is Surafel Zewdu <span className='waving-hand'>👋</span></p>
-            <p className='hero-text  text-white'>Building Websites With Modern Design</p>
-        </div>
-        <div className='w-full h-full absolute inset-0  '>
-            
-            <Canvas className='w-full h-full '>
-                <Suspense fallback={<CanvasLoader/>}>
-                    <PerspectiveCamera makeDefault position={[0,0,30]}/>
-                    <HeroCamera isMobile={isMobile}>
-                        <Room scale={isMobile ? 0.09 : 0.1} rotation={[0, -Math.PI, 0]} position={[1.3,-8.3 , 1.7]}   />
-                    </HeroCamera>
-                    <Sparkles 
-                    count={100}
-                    scale={20}
-                    size={4}
-                    speed={0.5}/>
-                    
-                    <group>
-                        <Target  scale={isMobile ? 1.3 : isTablet ? 1.7 : 2 } position={isMobile ? [-7.5, -10.7, 3.3] : isTablet ? [-13.5, -11.5, -0.7] : [-16.7,-9.9, 3.3] } rotation={[3.04, 3.14, -2.66]} />
-                        <ReactLogo scale={isMobile ? 0.6 : isTablet ? 0.8 : 1 } position={isMobile ? [8.5, 2.5, 1.7] : isTablet ? [14.1, 2.1, 3.3]  : [18.5, 1.3, 2.5] } rotation={[-0.20, 3.04, 1.84]} />
-                        <Tailwind scale={isMobile ? 20 : 35 } position={ isMobile ? [-5.1,2.9,10.5] : [-16.7, 1.3, 5.3]} rotation={[-Math.PI, 2.74, 0.10]} />
-                        <Html scale={isMobile ? 0.03 : 0.04} position={isMobile ? [14.5, -18.5, -20 ] : [28.9, -20, -20] } rotation={[ -Math.PI, 2.98, Math.PI ]}/>
-                    </group>
-                    <ambientLight intensity={1} />
-                    <directionalLight position={[10,10,10]} />
-                    
-                    
-                    
-                </Suspense>
-                
-            </Canvas>
-        </div>
-        <div className='absolute bottom-7 flex justify-center items-align left-0 right-0 w-full z-10 padding-x '>
-            <a href="#contact" className='w-fit'>
-                <Button name="Let's Work together " isBeam containerClass="sm:w-fit w-full sm:min-w-96 "/>
-            </a>
-        </div>
+    <section id="hero" className="relative overflow-hidden">
+      <div className="absolute top-0 left-0 z-10">
+        <img src="/images/bg.png" alt="" />
+      </div>
+
+      <div className="hero-layout">
+        
+        <header className="flex flex-col justify-center md:w-full w-screen md:px-20 px-5">
+          <div className="flex flex-col gap-7">
+            <div className="hero-text">
+              <h1>
+                Shaping
+                <span className="slide">
+                  <span className="wrapper">
+                    {words.map((word, index) => (
+                      <span
+                        key={index}
+                        className="flex items-center md:gap-3 gap-1 pb-2"
+                      >
+                        <img
+                          src={word.imgPath}
+                          alt="person"
+                          className="xl:size-12 md:size-10 size-7 md:p-2 p-1 rounded-full bg-white-50"
+                        />
+                        <span>{word.text}</span>
+                      </span>
+                    ))}
+                  </span>
+                </span>
+              </h1>
+              <h1>into Real Projects</h1>
+              <h1>that Deliver Results</h1>
+            </div>
+
+            <p className="text-white-50 md:text-xl relative z-10 pointer-events-none">
+              Hi, I’m Surafel, a developer based in Ethiopia with a passion for
+              code.
+            </p>
+
+            <Button
+              text="See My Work"
+              className="md:w-80 md:h-16 w-60 h-12"
+              id="counter"
+            />
+          </div>
+        </header>
+
+        
+        <figure>
+          <div className="hero-3d-layout">
+            <HeroExperience/>
+          </div>
+        </figure>
+      </div>
+            <AnimatedCounter/>
+      
     </section>
   )
 }

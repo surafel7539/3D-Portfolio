@@ -8,7 +8,6 @@
 html,
 body {
   width: 100dvw;
-  height: 100vh;
   overflow-x: hidden;
   background-color: black;
   color: white;
@@ -28,29 +27,6 @@ section {
   --color-black-200: #282732;
   --color-blue-50: #839cb5;
   --color-blue-100: #2d2d38;
-}
-@layer utilities {
-  .btn {
-    @apply flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-semibold text-center
-           bg-black-100 text-white transition-all duration-300
-           hover:bg-black-200 hover:scale-105
-           active:scale-95 cursor-pointer;
-  }
-  .ping_dot{
-     @apply absolute inline-flex h-full w-full rounded-full bg-green-400
-  }
-
-  .ping {
-    @apply absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75;
-    animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
-  }
-}
-
-@keyframes ping {
-  75%, 100% {
-    transform: scale(2);
-    opacity: 0;
-  }
 }
 
 @layer utilities {
@@ -109,7 +85,7 @@ section {
   }
 
   .hero-text {
-    @apply flex flex-col justify-center md:text-[40px]  text-center text-[30px] font-semibold relative z-10 pointer-events-none;
+    @apply flex flex-col justify-center md:text-[60px] text-[30px] font-semibold relative z-10 pointer-events-none;
     img {
       @apply size-8 md:size-10 object-contain;
     }
@@ -249,7 +225,7 @@ section {
         -translate-y-1/2 flex justify-center items-center overflow-hidden;
 
       img {
-        @apply size-5 xl:-translate-y-32 translate-y-0 animate-bounce group-hover:translate-y-0 transition-all duration-500;
+        @apply size-5  translate-y-0 animate-bounce group-hover:translate-y-0 transition-all duration-500;
       }
     }
   }
@@ -493,22 +469,4 @@ section {
 
 .card:hover::before {
   opacity: 1;
-}
-.waving-hand{
-  animation-name: wave;
-  animation-duration: 2.5s;
-  animation-iteration-count: infinite;
-  transform-origin: 70% 70%;
-  display: inline-block;
-}
-@keyframes wave {
-  0%{
-    transform: rotate(0deg);
-  }
-  50%{
-    transform: rotate(-15deg);
-  }
-  100%{
-    transform: rotate(15deg);
-  }
 }
