@@ -3,6 +3,9 @@ import './index.css'
 import Hero from './Sections/Hero'
 import Projects from './Sections/Projects'
 import Navbar from './Sections/Navbar'
+import Logos from './Sections/Logos'
+import Cards from './Sections/Cards'
+import Journey from './Sections/Journey'
 
 
 function App() {
@@ -13,6 +16,8 @@ function App() {
             <Navbar/>
             <Hero/>
             <Projects/>
+            <Cards/>
+            <Journey/>
             
         </main>
     )

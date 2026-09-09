@@ -49,7 +49,9 @@ const Projects = () => {
             <div className='showcaselayout'>
                 <div className='first-project-wrapper' ref={project1ref}>
                     <div className='image-wrapper '>
-                        <img src="/images/Screenshot (53).png" alt="Telegram Lite" />
+                        <a href="https://chatapp123-six.vercel.app/" target='_blank'>
+                            <img src="/images/Screenshot (53).png" alt="Telegram Lite" />
+                        </a>
                     </div>
                     <div className='text-content'>
                         <h2>A Live Texting Website like Telegram</h2>
@@ -61,13 +63,18 @@ const Projects = () => {
                 <div className='project-list-wrapper overflow-hidden'>
                 <div className='project' ref={project2ref}>
                     <div className='image-wrapper bg-[#ffefdb] '>
-                        <img src="/images/Screenshot (49).png" alt="Dama MarketPlace" />
+                        <a href="https://dama-ach4-alpha.vercel.app/" target='_blank'>
+                            <img src="/images/Screenshot (49).png" alt="Dama MarketPlace" />
+                        </a>
+                        
                     </div>
                     <h2>Dama Market-Place</h2>
                 </div>
                 <div className='project' ref={project3ref}>
                     <div className='image-wrapper bg-[#ffe7db] '>
-                        <img src="/images/Screenshot (49).png" alt="Dama MarketPlace" />
+                        <a href="https://dama-ach4-alpha.vercel.app/" target='_blank'>
+                            <img src="/images/Screenshot (49).png" alt="Dama MarketPlace" />
+                        </a>
                     </div>
                     <h2>Weather App</h2>
                 </div>

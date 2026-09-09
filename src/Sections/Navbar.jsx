@@ -3,8 +3,8 @@ import { navLinks } from '../constants'
 
 const Navbar = () => {
   return (
-    <header className='navbar'>
-        <div className='inner'>
+    <header className='navbar  '>
+        <div className='inner   '>
             <a className='logo' href="#hero">
                 Surafel | Sucha
             </a>
