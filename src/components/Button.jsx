@@ -1,7 +1,7 @@
 
 import React from 'react'
 
-const Button = ({text, id, className}) => {
+const Button = ({text, id, className, src}) => {
   return (
     <a onClick={(e) => {
       e.preventDefault()
@@ -17,7 +17,7 @@ const Button = ({text, id, className}) => {
           <div className='bg-circle'/>
           <p className='text'>{text} </p>
           <div className='arrow-wrapper'>
-            <img src="/images/arrow-down.svg" alt="arrow" />
+            <img src={src} alt="arrow" />
           </div>
       </div>
     </a>

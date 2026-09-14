@@ -6,6 +6,9 @@ import Navbar from './Sections/Navbar'
 import Logos from './Sections/Logos'
 import Cards from './Sections/Cards'
 import Journey from './Sections/Journey'
+import TechStack from './Sections/TechStack'
+import Contact from './Sections/Contact'
+import Footer from './Sections/Footer'
 
 
 function App() {
@@ -18,6 +21,9 @@ function App() {
             <Projects/>
             <Cards/>
             <Journey/>
+            <TechStack/>
+            <Contact/>
+            <Footer/>
             
         </main>
     )

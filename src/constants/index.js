@@ -1,20 +1,17 @@
 const navLinks = [
   {
-    name: "Home",
-    link: "#home",
+    name: "Projects",
+    link: "#project",
   },
   {
     name: "Journey",
     link: "#journey",
   },
   {
-    name: "Projects",
-    link: "#project",
+    name: "Skills",
+    link: "#skills",
   },
-  {
-    name: "Contact",
-    link: "#contact",
-  },
+ 
 ];
 
 const words = [
@@ -239,18 +236,17 @@ const socialImgs = [
   {
     name: "insta",
     imgPath: "/images/insta.png",
-  },
-  {
-    name: "fb",
-    imgPath: "/images/fb.png",
+    url:'https://www.instagram.com/suchaz7539/'
   },
   {
     name: "x",
     imgPath: "/images/x.png",
+    url:'/'
   },
   {
     name: "linkedin",
     imgPath: "/images/linkedin.png",
+    url:'/'
   },
 ];
 

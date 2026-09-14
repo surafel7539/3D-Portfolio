@@ -68,6 +68,7 @@ const Hero = () => {
               text="See My Work"
               className="md:w-80 md:h-16 w-60 h-12"
               id="counter"
+              src='/images/arrow-down.svg'
             />
           </div>
         </header>
